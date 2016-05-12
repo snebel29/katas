@@ -34,16 +34,22 @@ describe Array do
         end
       end
 
+      context 'with array without the value duplicates and greather than higher value' do
+        it 'return nil' do
+          expect([5, 1, 6, 6, 7, 5, 6, 1, 8, 7, 2, 2, 5, 3, 2, 5, 8, 4, 1, 3, 3, 5, 6, 6, 8].binary_search(9)).to be_nil
+        end
+      end
+
       context 'randomly generated array(s) with duplicates' do
 
         before do
-          @array = Array.new(25) { rand(10) }
+          @array = Array.new(rand(25)) { rand(10) }
           @item = rand(10)
         end
 
         100.times do
           it 'return same value as index method' do
-            puts "#{' '*6}Randomly generated #{@array.sort.to_s} #{@item}"
+            puts "#{' '*6}Randomly generated #{@array.to_s} #{@item}"
             expect(@array.binary_search(@item)).to eql(@array.sort.index(@item))
           end
         end

@@ -1,2 +1,2 @@
 # katas
-my personal katas
+My personal katas

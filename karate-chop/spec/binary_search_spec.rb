@@ -41,9 +41,9 @@ describe Array do
           @item = rand(10)
         end
 
-        25.times do
+        100.times do
           it 'return same value as index method' do
-            puts "#{' '*6}Randomly generated #{@array.to_s} #{@item}"
+            puts "#{' '*6}Randomly generated #{@array.sort.to_s} #{@item}"
             expect(@array.binary_search(@item)).to eql(@array.sort.index(@item))
           end
         end

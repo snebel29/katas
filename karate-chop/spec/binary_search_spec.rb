@@ -40,11 +40,18 @@ describe Array do
         end
       end
 
+      context 'with array without the value duplicates and less than lower value' do
+        it 'return nil' do
+          expect([-9, -9, -8, -8, -7, -7, -6, -6, -5, -5, -3, -3, 0, 0, 0, 10, 10].binary_search(-10)).to be_nil
+        end
+      end
+
+
       context 'randomly generated array(s) with duplicates' do
 
         before do
-          @array = Array.new(rand(25)) { rand(10) }
-          @item = rand(10)
+          @array = Array.new(rand(100)) { rand(-10..10) }
+          @item = rand(-10..10)
         end
 
         100.times do

@@ -8,15 +8,30 @@ describe Anagrams do
   end
 
   describe '.find' do
-    context 'with 2 valid values' do
+    context 'with 2 anagrams' do
       before do
         @file = File.join(@data_dir, 'fixtures1.txt')
         @anagrams.load_file(@file)
       end
-      it { expect(@anagrams.find.length).to eq(1) }
+      it 'find 1 group' do
+        expect(@anagrams.find.length).to eq(1)
+      end
+
       it 'expect to have both words' do
         expect(@anagrams.find[["h", "i", "i", "k", "n", "p", "s"]]).to eq(["kinship", "pinkish"])
       end
+    end
+
+    context 'with 2 anagrams with special utf-8 characters' do
+      before do
+        @file = File.join(@data_dir, 'fixtures2.txt')
+        @anagrams.load_file(@file)
+      end
+
+      it 'find 1 group' do
+        expect(@anagrams.find.length).to eq(1)
+      end
+
     end
 
     context 'without loading a file' do
@@ -29,7 +44,7 @@ describe Anagrams do
 
     context 'with a full word list in iso-8859 codification' do
       before do
-        @file = File.join(File.expand_path('../../data', __FILE__), 'wordlist_full.txt')
+        @file = File.join(File.expand_path('../../data', __FILE__), 'fixtures3.txt')
         @anagrams.load_file(@file, :encode => 'iso-8859-1')
       end
 
@@ -37,10 +52,6 @@ describe Anagrams do
       it 'expect to have some random anagrams' do
         expect(@anagrams.find[["a", "e", "n", "o", "r", "s", "s", "u"]]).to eq(["anserous", "arsenous"])
       end
-    end
-
-    context 'with a full word list find all anagrams' do
-
     end
 
   end

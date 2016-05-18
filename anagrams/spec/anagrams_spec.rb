@@ -29,7 +29,7 @@ describe Anagrams do
 
     context 'with a full word list in iso-8859 codification' do
       before do
-        @file = File.join(File.expand_path('../../data', __FILE__), 'wordlist.txt')
+        @file = File.join(File.expand_path('../../data', __FILE__), 'wordlist_full.txt')
         @anagrams.load_file(@file, :encode => 'iso-8859-1')
       end
 

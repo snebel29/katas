@@ -18,7 +18,6 @@ class Anagrams
     @words.each do |word|
       id = word.chars.sort
       anagram_group = buffer[id]
-      #puts anagram_group.to_s
       anagrams[id] = anagram_group if anagram_group.count > 1
     end
 

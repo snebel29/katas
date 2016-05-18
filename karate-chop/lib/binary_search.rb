@@ -18,7 +18,7 @@ class Array
       break if middle_point == length
       upper_bound = middle_point - 1 if mid_value > item
       lower_bound = middle_point + 1 if mid_value < item
-      
+
     end
 
     if !index.nil?

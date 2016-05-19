@@ -1,0 +1,12 @@
+load the file
+split array in three different ones
+1. all words with six letters
+2. all words with more than 6 letters => discard this array
+3. all words with less than 6 letters
+
+array_with_object the 6 letters word array and initialize a hash with empty array
+walk through hash and les than 6 letters array, if  little word /^littleword/ or /littleword$/ add to the array value
+Remove all elemens with empty array
+
+
+

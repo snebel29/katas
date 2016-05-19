@@ -37,7 +37,7 @@ class SubWordFinder
     end
 
     result
-    
+
   end
 
 end
